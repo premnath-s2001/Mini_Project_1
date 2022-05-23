@@ -1,0 +1,129 @@
+<div class="p-4 mx-64 mb-8 bg-white rounded-lg border shadow-md sm:p-8 dark:bg-gray-800 dark:border-gray-700" style="width:800px">
+  <div class="flex justify-between items-center mb-4">
+  <h5 class="text-xl font-bold leading-none text-gray-900 dark:text-white">Your Cart Items</h5>
+  <!-- <a href="#" class="text-sm font-medium text-blue-600 hover:underline dark:text-blue-500">
+  View all
+  </a> -->
+  </div>
+  <div class="flow-root" style="width:700px">
+  <ul role="list" class="divide-y divide-gray-200 dark:divide-gray-700">
+  <li class="py-3 sm:py-4">
+  <div class="flex items-center space-x-4">
+  <div class="flex-shrink-0">
+  <img class="w-8 h-8 rounded-full" src="https://cdn-icons.flaticon.com/png/512/735/premium/735284.png?token=exp=1653060317~hmac=43cdfb429b4f3f0a8ff82e2fed8f9879" alt="Neil image">
+  </div>
+  <div class="flex-1 min-w-0">
+  <p class="text-sm font-medium text-gray-900 truncate dark:text-white">
+  Apple
+  </p>
+  
+  </div>
+  <div class="inline-flex items-center text-base font-semibold text-gray-900 dark:text-white">
+  Qnt : 1
+  </div>
+  <div class="inline-flex items-center text-base font-semibold text-gray-900 dark:text-white">
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;₹320
+    </div>
+    <div class="inline-flex items-center text-base font-semibold text-gray-900 dark:text-white">
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<button type="button" class="text-gray-900 bg-gradient-to-r from-red-200 via-red-300 to-yellow-200 hover:bg-gradient-to-bl focus:ring-4 focus:outline-none focus:ring-red-100 dark:focus:ring-red-400 font-medium rounded-lg text-sm px-5 py-2.5 text-center mr-2 mb-2">Order</button>
+      </div>
+  </div>
+  
+  </li>
+  <li class="py-3 sm:py-4">
+  <div class="flex items-center space-x-4">
+  <div class="flex-shrink-0">
+  <img class="w-8 h-8 rounded-full" src="https://cdn-icons.flaticon.com/png/512/5280/premium/5280911.png?token=exp=1653060355~hmac=81237b0f5984b8efbab7425784ca7f52" alt="Bonnie image">
+  </div>
+  <div class="flex-1 min-w-0">
+  <p class="text-sm font-medium text-gray-900 truncate dark:text-white">
+ Tomato
+  </p>
+  
+  </div>
+  <div class="inline-flex items-center text-base font-semibold text-gray-900 dark:text-white">
+    Qnt : 5
+  </div>
+  <div class="inline-flex items-center text-base font-semibold text-gray-900 dark:text-white">
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;₹320
+    </div>
+    <div class="inline-flex items-center text-base font-semibold text-gray-900 dark:text-white">
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<button type="button" class="text-gray-900 bg-gradient-to-r from-red-200 via-red-300 to-yellow-200 hover:bg-gradient-to-bl focus:ring-4 focus:outline-none focus:ring-red-100 dark:focus:ring-red-400 font-medium rounded-lg text-sm px-5 py-2.5 text-center mr-2 mb-2">Order</button>
+      </div>
+  </div>
+  </li>
+  <li class="py-3 sm:py-4">
+  <div class="flex items-center space-x-4">
+  <div class="flex-shrink-0">
+  <img class="w-8 h-8 rounded-full" src="https://cdn-icons.flaticon.com/png/512/676/premium/676422.png?token=exp=1653060424~hmac=38e83918f9afd8bf505759327f417a8a" alt="Michael image">
+  </div>
+  <div class="flex-1 min-w-0">
+  <p class="text-sm font-medium text-gray-900 truncate dark:text-white">
+  Grapees
+  </p>
+  
+  </div>
+  <div class="inline-flex items-center text-base font-semibold text-gray-900 dark:text-white">
+    Qnt : 2
+  </div>
+  <div class="inline-flex items-center text-base font-semibold text-gray-900 dark:text-white">
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;₹320
+    </div>
+    <div class="inline-flex items-center text-base font-semibold text-gray-900 dark:text-white">
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<button type="button" class="text-gray-900 bg-gradient-to-r from-red-200 via-red-300 to-yellow-200 hover:bg-gradient-to-bl focus:ring-4 focus:outline-none focus:ring-red-100 dark:focus:ring-red-400 font-medium rounded-lg text-sm px-5 py-2.5 text-center mr-2 mb-2">Order</button>
+      </div>
+  </div>
+  </li>
+  <li class="py-3 sm:py-4">
+  <div class="flex items-center space-x-4">
+  <div class="flex-shrink-0">
+  <img class="w-8 h-8 rounded-full" src="https://cdn-icons.flaticon.com/png/512/2276/premium/2276656.png?token=exp=1653060458~hmac=645f159f1000bc98b719f00a1f81ba61" alt="Lana image">
+  </div>
+  <div class="flex-1 min-w-0">
+  <p class="text-sm font-medium text-gray-900 truncate dark:text-white">
+  Carrot
+  </p>
+  
+  </div>
+   <div class="inline-flex items-center text-base font-semibold text-gray-900 dark:text-white">
+    Qnt : 1
+  </div>
+  <div class="inline-flex items-center text-base font-semibold text-gray-900 dark:text-white">
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;₹320
+    </div>
+    <div class="inline-flex items-center text-base font-semibold text-gray-900 dark:text-white">
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<button type="button" class="text-gray-900 bg-gradient-to-r from-red-200 via-red-300 to-yellow-200 hover:bg-gradient-to-bl focus:ring-4 focus:outline-none focus:ring-red-100 dark:focus:ring-red-400 font-medium rounded-lg text-sm px-5 py-2.5 text-center mr-2 mb-2">Order</button>
+      </div>
+  </div>
+  </li>
+  <li class="pt-3 pb-0 sm:pt-4">
+  <div class="flex items-center space-x-4">
+  <div class="flex-shrink-0">
+  <img class="w-8 h-8 rounded-full" src="https://cdn-icons-png.flaticon.com/512/1135/1135559.png" alt="Thomas image">
+  </div>
+  <div class="flex-1 min-w-0">
+  <p class="text-sm font-medium text-gray-900 truncate dark:text-white">
+  Mango
+  </p>
+  
+  </div>
+  <div class="inline-flex items-center text-base font-semibold text-gray-900 dark:text-white">
+    Qnt : 3
+  </div>
+  <div class="inline-flex items-center text-base font-semibold text-gray-900 dark:text-white">
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;₹320
+    </div>
+    <div class="inline-flex items-center text-base font-semibold text-gray-900 dark:text-white">
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<button type="button" class="text-gray-900 bg-gradient-to-r from-red-200 via-red-300 to-yellow-200 hover:bg-gradient-to-bl focus:ring-4 focus:outline-none focus:ring-red-100 dark:focus:ring-red-400 font-medium rounded-lg text-sm px-5 py-2.5 text-center mr-2 mb-2">Order</button>
+      </div>
+  </div>
+  </li>
+  </ul>
+  <div style="text-align:center">
+    <br><br>
+    <button type="button" class="text-white bg-gradient-to-r from-purple-500 to-pink-500 hover:bg-gradient-to-l focus:ring-4 focus:outline-none focus:ring-purple-200 dark:focus:ring-purple-800 font-medium rounded-lg text-sm px-5 py-2.5 text-center mr-2 mb-2">Order All Items</button>
+  </div>
+  
+  </div>
+
+  

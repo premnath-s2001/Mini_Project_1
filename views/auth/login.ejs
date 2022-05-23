@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <link href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css" rel="stylesheet">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Redressed&display=swap" rel="stylesheet">
+  <title>Login</title>
+  <link rel="stylesheet" href="/build/tailwind.css" type="text/css" media="screen" title="no title" charset="utf-8" />
+  <style>
+    #logo {
+      background-image: url(https://img.freepik.com/free-vector/account-concept-illustration_114360-399.jpg);
+      background-repeat: no-repeat;
+      background-size: cover;
+      width: 60%;
+      background-color: white !important;
+    }
+    .logo { 
+         background: url("/path") no-repeat; 
+         width: 350px; 
+         height: 100px; 
+         display: block; 
+         text-indent: -9999px;
+         margin-left:10%;
+         margin-top:1%;
+}
+    input:focus {
+      border-color: #1daa92;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="lg:flex ">
+    <div class="lg:w-1/2 xl:max-w-screen-sm ">
+      <!-- <img class="logo" src="/images/sk2.jpeg" alt="" /> -->
+      <br> <br> <br>
+      <div class="mt-10 px-12 sm:px-24 md:px-48 lg:px-12 lg:mt-8 xl:px-24 xl:max-w-2xl">
+        <h2 class="text-center text-4xl  font-display font-semibold lg:text-left xl:text-5xl
+                    xl:text-bold" style="color:#1daa92">Sign in</h2>
+        <br>
+        <% if(errorMessage) { %>
+          <div style="text-align: center;color:red; font-weight: bold;">
+            <p>
+              <%= errorMessage %>
+            </p>
+          </div>
+          <% } %>
+            <div class="mt-12">
+              <form action="/login" method="POST">
+                <div>
+                  <div class="text-sm font-bold text-gray-700 tracking-wide">Email Address</div>
+                  <input class="w-full text-lg py-2 border-b border-gray-300 focus:outline-none" type="email"
+                    name="email" placeholder="user@gmail.com">
+                </div>
+                <div class="mt-8">
+                  <div class="flex justify-between items-center">
+                    <div class="text-sm font-bold text-gray-700 tracking-wide">
+                      Password
+                    </div>
+                    <div>
+                      <a href="/reset-password-verify" class="text-xs font-display font-semibold  hover:text-indigo-800
+                                        cursor-pointer" style="color:#22c0a6">
+                        Forgot Password?
+                      </a>
+                    </div>
+                  </div>
+                  <input class="w-full text-lg py-2 border-b border-gray-300 focus:outline-none" type="password"
+                    name="password" placeholder="Enter your password">
+                </div>
+                <div class="mt-10 lg:ml-20 lg:mr-20 lg:pl-1">
+                  <button class="text-gray-100 p-4 w-full rounded-full tracking-wide
+                                font-semibold font-display focus:outline-none focus:shadow-outline hover:bg-indigo-600
+                                shadow-lg" style="background-color:#27DEC0">
+                    Log In
+                  </button>
+                </div>
+              </form>
+              <div class="mt-12 text-sm font-display font-semibold text-gray-700 text-center">
+                Don't have an account ? <a href="/signup" class="cursor-pointer  hover:text-indigo-800"
+                  style="color:#22c0a6">Sign up</a>
+              </div>
+            </div>
+      </div>
+    </div>
+
+    <div class="hidden lg:flex  bg-indigo-100 " id="logo">
+
+    </div>
+  </div>
+  </div>
+  </div>
+  
+  </div>
+</body>
+
+</html>
+
+
