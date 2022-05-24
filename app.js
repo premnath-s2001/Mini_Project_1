@@ -6,7 +6,9 @@ const session = require("express-session");
 const MongoDBStore = require("connect-mongodb-session")(session);
 const csrf = require("csurf");
 const flash = require("connect-flash");
-const MONGODB_URI ="mongodb+srv://Ravichandran:A6aPsjob4G2mvpnE@cluster0.4fago.mongodb.net/Ehoryzon";
+const dotenv = require('dotenv');
+dotenv.config();
+const MONGODB_URI = process.env.MONGODB_URI;
 const app = express();
 const store = new MongoDBStore({
     uri: MONGODB_URI,
