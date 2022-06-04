@@ -13,11 +13,3 @@ exports.getHome = (req, res, next) => {
       err:0
     });
   };
-
-  exports.getProfile= (req, res, next) => {
-    res.render("user/profile", {
-      path: "/login",
-      pageTitle: "Login",
-      err:0
-    });
-  };

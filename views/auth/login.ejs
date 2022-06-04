@@ -72,9 +72,10 @@
                     name="password" placeholder="Enter your password">
                 </div>
                 <div class="mt-10 lg:ml-20 lg:mr-20 lg:pl-1">
+                  <input type="hidden" name="_csrf" value="<%= csrfToken %>">
                   <button class="text-gray-100 p-4 w-full rounded-full tracking-wide
                                 font-semibold font-display focus:outline-none focus:shadow-outline hover:bg-indigo-600
-                                shadow-lg" style="background-color:#27DEC0">
+                                shadow-lg" style="background-color:#27DEC0" type="submit">
                     Log In
                   </button>
                 </div>

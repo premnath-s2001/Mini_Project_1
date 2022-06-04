@@ -22,6 +22,9 @@ app.set("views", "views");
 const authRoutes = require("./routes/auth");
 const adminRoutes = require("./routes/admin");
 const shopRoutes = require("./routes/shop");
+const userRoutes = require("./routes/user");
+
+const User = require('./models/user');
 
 app.use(bodyParser.urlencoded({ extended: false }));
 
@@ -41,10 +44,11 @@ app.use(csrfProtection);
 app.use(flash());
 
 app.use((req, res, next) => {
+    var token = req.csrfToken();
     res.locals.isAuthenticated1 = req.session.isLoggedIn;
     res.locals.Admin = req.session.Admin;
     res.locals.isAdmin = false;
-    res.locals.csrfToken = req.csrfToken();
+    res.locals.csrfToken = token;
     next();
 });
 
@@ -69,13 +73,14 @@ app.use((req, res, next) => {
 
 app.use(authRoutes);
 app.use("/admin",adminRoutes);
-app.use(shopRoutes)
-// mongoose
-//     .connect(MONGODB_URI)
-//     .then((result) => {
-//         app.listen(port);
-//     })
-//     .catch((err) => {
-//         console.log(err);
-//     });
-app.listen(3000);
+app.use(shopRoutes);
+app.use(userRoutes);
+mongoose
+    .connect(MONGODB_URI)
+    .then((result) => {
+        app.listen(port);
+    })
+    .catch((err) => {
+        console.log(err);
+    });
+// app.listen(3000);
