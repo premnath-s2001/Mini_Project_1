@@ -128,6 +128,13 @@ exports.postSignup = (req, res, next) => {
     });
 };
 
+exports.getDetails = (req, res, next) => {
+  res.render("auth/user-detail", {
+    path: "/user-detail",
+    
+  });
+};
+
 exports.getResetVerify = (req, res, next) => {
   res.render("auth/reset-verify", {
     path: "/reset-password-verify",

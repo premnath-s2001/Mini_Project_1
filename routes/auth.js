@@ -33,6 +33,8 @@ router.post('/signup', [
         .withMessage("Password Must Contain A Number")
 ], authController.postSignup);
 
+router.get("/user-details", authController.getDetails);
+
 router.get("/home", authController.getHome);
 
 router.get('/reset-password-verify', authController.getResetVerify);

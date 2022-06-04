@@ -92,7 +92,11 @@ button:focus {
                     <form action="update" method="POST"> 
                      
                         <div class="row justify-content-between mt-2 text-left">
-                            <div class="form-group col-12 flex-column d-flex"> <label class="form-control-label px-3">Product Image</label> <input type="text" id="pimage" name="pimage"  value="" placeholder="Enter product image URL" onblur="validate(6)"> </div>
+                            <div class="form-group col-12 flex-column d-flex"> <label class="form-control-label px-3">Image Link</label> <input type="text" id="pimage" name="pimage"  value="" placeholder="Enter product image URL" onblur="validate(6)">or <br><div class="mb-3">
+                                <label for="formFile" class="form-label">Upload Image</label>
+                                <input class="form-control" type="file" id="formFile">
+                              </div>
+                              </div>
                         </div>
                         <div class="row justify-content-between mt-2 text-left">
                             <div class="form-group col-sm-6 flex-column d-flex"> <label class="form-control-label px-1" style="text-align:left">Product Name</label> <input type="text" id="pname" name="pname" value="" placeholder="Eg:Apple" onblur="validate(3)"> </div>
