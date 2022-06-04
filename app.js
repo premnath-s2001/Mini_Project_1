@@ -15,7 +15,7 @@ const store = new MongoDBStore({
     collection: "sessions",
 });
 const port = process.env.PORT || 3000;
-const csrfProtection = csrf();
+
 app.set("view engine", "ejs");
 app.set("views", "views");
 
@@ -30,6 +30,7 @@ app.use(bodyParser.urlencoded({ extended: false }));
 
 app.use(express.static(path.join(__dirname, "public")));
 app.use("/images", express.static(path.join(__dirname, "images")));
+ const csrfProtection = csrf();
 
 app.use(
     session({

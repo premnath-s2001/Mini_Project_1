@@ -141,3 +141,10 @@ exports.getHome = (req, res, next) => {
     pageTitle: "Home",
   });
 };
+
+exports.getDetails = (req, res, next) => {
+  res.render("auth/user-detail", {
+    path: "/user-details",
+    pageTitle: "Details",
+  });
+};
