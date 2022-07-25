@@ -1,180 +1,190 @@
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<link rel="stylesheet" type="text/css" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
-<link rel="stylesheet" type="text/css" href="https://pixinvent.com/stack-responsive-bootstrap-4-admin-template/app-assets/css/bootstrap-extended.min.css">
-<link rel="stylesheet" type="text/css" href="https://pixinvent.com/stack-responsive-bootstrap-4-admin-template/app-assets/fonts/simple-line-icons/style.min.css">
-<link rel="stylesheet" type="text/css" href="https://pixinvent.com/stack-responsive-bootstrap-4-admin-template/app-assets/css/colors.min.css">
-<link rel="stylesheet" type="text/css" href="https://pixinvent.com/stack-responsive-bootstrap-4-admin-template/app-assets/css/bootstrap.min.css">
-<link href="https://fonts.googleapis.com/css?family=Montserrat&display=swap" rel="stylesheet">
-
-<div class="grey-bg container-fluid">
-  <section id="minimal-statistics">
-    <div class="row">
-      <div class="col-12 mt-3 mb-1 text-center">
-        <p>Sri Kumaran Pazhamudhir Nilayam</p>
-        <h4 class="text-uppercase" style="font-weight:bold">Admin Dashboard</h4>
-        <br>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" type="text/css" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+  <link rel="stylesheet" type="text/css" href="https://pixinvent.com/stack-responsive-bootstrap-4-admin-template/app-assets/css/bootstrap-extended.min.css">
+  <link rel="stylesheet" type="text/css" href="https://pixinvent.com/stack-responsive-bootstrap-4-admin-template/app-assets/fonts/simple-line-icons/style.min.css">
+  <link rel="stylesheet" type="text/css" href="https://pixinvent.com/stack-responsive-bootstrap-4-admin-template/app-assets/css/colors.min.css">
+  <link rel="stylesheet" type="text/css" href="https://pixinvent.com/stack-responsive-bootstrap-4-admin-template/app-assets/css/bootstrap.min.css">
+  <link href="https://fonts.googleapis.com/css?family=Montserrat&display=swap" rel="stylesheet">
+  
+  <title><%= pageTitle %></title>
+</head>
+<body>
+  <div class="grey-bg container-fluid">
+    <section id="minimal-statistics">
+      <div class="row">
+        <div class="col-12 mt-3 mb-1 text-center">
+          <p>Sri Kumaran Pazhamudhir Nilayam</p>
+          <h4 class="text-uppercase" style="font-weight:bold">Admin Dashboard</h4>
+          <br>
+        </div>
       </div>
-    </div>
-    <div class="row">
-      <div class="col-xl-3 col-sm-6 col-12"> 
-        <a href="/admin/add-product">
-            <div class="card">
-                <div class="card-content">
-                  <div class="card-body">
-                    <div class="media d-flex">
-                      <div class="align-self-center">
-                        <i class="icon-plus primary font-large-2 float-left"></i>
-                      </div>
-                      <div class="media-body text-right">
-                        <h3>ADD</h3>
-                        <span style="color:rgb(97, 97, 97)">New Product</span>
+      <div class="row">
+        <div class="col-xl-3 col-sm-6 col-12"> 
+          <a href="/admin/add-product">
+              <div class="card">
+                  <div class="card-content">
+                    <div class="card-body">
+                      <div class="media d-flex">
+                        <div class="align-self-center">
+                          <i class="icon-plus primary font-large-2 float-left"></i>
+                        </div>
+                        <div class="media-body text-right">
+                          <h3>ADD</h3>
+                          <span style="color:rgb(97, 97, 97)">New Product</span>
+                        </div>
                       </div>
                     </div>
                   </div>
                 </div>
-              </div>
-        </a>  
-        
-      </div>
-      <div class="col-xl-3 col-sm-6 col-12">
-        <a href="/admin/products">
-        <div class="card">
-          <div class="card-content">
-            <div class="card-body">
-              <div class="media d-flex">
-                <div class="align-self-center">
-                  <i class="icon-social-dropbox warning font-large-2 float-left"></i>
-                </div>
-                <div class="media-body text-right">
-                  <h3>VIEW</h3>
-                  <span style="color:rgb(97, 97, 97)">All Products</span>
+          </a>  
+          
+        </div>
+        <div class="col-xl-3 col-sm-6 col-12">
+          <a href="/admin/products">
+          <div class="card">
+            <div class="card-content">
+              <div class="card-body">
+                <div class="media d-flex">
+                  <div class="align-self-center">
+                    <i class="icon-social-dropbox warning font-large-2 float-left"></i>
+                  </div>
+                  <div class="media-body text-right">
+                    <h3>VIEW</h3>
+                    <span style="color:rgb(97, 97, 97)">All Products</span>
+                  </div>
                 </div>
               </div>
             </div>
           </div>
+      </a> 
         </div>
-    </a> 
-      </div>
-      <div class="col-xl-3 col-sm-6 col-12">
-        <a href="/admin/edit-product">
-        <div class="card">
-          <div class="card-content">
-            <div class="card-body">
-              <div class="media d-flex">
-                <div class="align-self-center">
-                  <i class="icon-note success font-large-2 float-left"></i>
-                </div>
-                <div class="media-body text-right">
-                  <h3>EDIT</h3>
-                  <span style="color:rgb(97, 97, 97)">Products</span>
+        <div class="col-xl-3 col-sm-6 col-12">
+          <a href="/admin/edit-product">
+          <div class="card">
+            <div class="card-content">
+              <div class="card-body">
+                <div class="media d-flex">
+                  <div class="align-self-center">
+                    <i class="icon-note success font-large-2 float-left"></i>
+                  </div>
+                  <div class="media-body text-right">
+                    <h3>EDIT</h3>
+                    <span style="color:rgb(97, 97, 97)">Products</span>
+                  </div>
                 </div>
               </div>
             </div>
           </div>
+      </a> 
         </div>
-    </a> 
-      </div>
-      <div class="col-xl-3 col-sm-6 col-12">
-        <a href="/admin/delete-product">
-        <div class="card">
-          <div class="card-content">
-            <div class="card-body">
-              <div class="media d-flex">
-                <div class="align-self-center">
-                  <i class="icon-close danger font-large-2 float-left"></i>
-                </div>
-                <div class="media-body text-right">
-                  <h3>DROP</h3>
-                  <span style="color:rgb(97, 97, 97)">Products</span>
+        <div class="col-xl-3 col-sm-6 col-12">
+          <a href="/admin/delete-product">
+          <div class="card">
+            <div class="card-content">
+              <div class="card-body">
+                <div class="media d-flex">
+                  <div class="align-self-center">
+                    <i class="icon-close danger font-large-2 float-left"></i>
+                  </div>
+                  <div class="media-body text-right">
+                    <h3>DROP</h3>
+                    <span style="color:rgb(97, 97, 97)">Products</span>
+                  </div>
                 </div>
               </div>
             </div>
           </div>
+      </a> 
         </div>
-    </a> 
       </div>
-    </div>
-  
-    <div class="row">
-      <div class="col-xl-3 col-sm-6 col-12">
-        <a href="/admin/new-orders">
-        <div class="card">
-          <div class="card-content">
-            <div class="card-body">
-              <div class="media d-flex">
-                <div class="media-body text-left">
-                  <h3 class="danger">NEW</h3>
-                  <span style="color:rgb(97, 97, 97)">Orders</span>
-                </div>
-                <div class="align-self-center">
-                  <i class="icon-handbag danger font-large-2 float-right"></i>
+    
+      <div class="row">
+        <div class="col-xl-3 col-sm-6 col-12">
+          <a href="/admin/new-orders">
+          <div class="card">
+            <div class="card-content">
+              <div class="card-body">
+                <div class="media d-flex">
+                  <div class="media-body text-left">
+                    <h3 class="danger">NEW</h3>
+                    <span style="color:rgb(97, 97, 97)">Orders</span>
+                  </div>
+                  <div class="align-self-center">
+                    <i class="icon-handbag danger font-large-2 float-right"></i>
+                  </div>
                 </div>
               </div>
             </div>
           </div>
+      </a> 
         </div>
-    </a> 
-      </div>
-      <div class="col-xl-3 col-sm-6 col-12">
-        <a href="/admin/all-orders">
-        <div class="card">
-          <div class="card-content">
-            <div class="card-body">
-              <div class="media d-flex">
-                <div class="media-body text-left">
-                  <h3 class="success">VIEW</h3>
-                  <span style="color:rgb(97, 97, 97)">All Orders</span>
-                </div>
-                <div class="align-self-center">
-                  <i class="icon-basket-loaded success font-large-2 float-right"></i>
+        <div class="col-xl-3 col-sm-6 col-12">
+          <a href="/admin/all-orders">
+          <div class="card">
+            <div class="card-content">
+              <div class="card-body">
+                <div class="media d-flex">
+                  <div class="media-body text-left">
+                    <h3 class="success">VIEW</h3>
+                    <span style="color:rgb(97, 97, 97)">All Orders</span>
+                  </div>
+                  <div class="align-self-center">
+                    <i class="icon-basket-loaded success font-large-2 float-right"></i>
+                  </div>
                 </div>
               </div>
             </div>
           </div>
+      </a> 
         </div>
-    </a> 
-      </div>
-  
-      <div class="col-xl-3 col-sm-6 col-12">
-        <a href="">
-        <div class="card">
-          <div class="card-content">
-            <div class="card-body">
-              <div class="media d-flex">
-                <div class="media-body text-left">
-                  <h3 class="warning">155</h3>
-                  <span style="color:rgb(97, 97, 97)">Total Customers</span>
-                </div>
-                <div class="align-self-center">
-                  <i class="icon-user warning font-large-2 float-right"></i>
+    
+        <div class="col-xl-3 col-sm-6 col-12">
+          <a href="">
+          <div class="card">
+            <div class="card-content">
+              <div class="card-body">
+                <div class="media d-flex">
+                  <div class="media-body text-left">
+                    <h3 class="warning">155</h3>
+                    <span style="color:rgb(97, 97, 97)">Total Customers</span>
+                  </div>
+                  <div class="align-self-center">
+                    <i class="icon-user warning font-large-2 float-right"></i>
+                  </div>
                 </div>
               </div>
             </div>
           </div>
+      </a> 
         </div>
-    </a> 
-      </div>
-      <div class="col-xl-3 col-sm-6 col-12">
-        <a href="/admin/settings">
-        <div class="card">
-          <div class="card-content">
-            <div class="card-body">
-              <div class="media d-flex">
-                <div class="media-body text-left">
-                  <h3 class="primary">Admin</h3>
-                  <span style="color:rgb(97, 97, 97)">Settings</span>
-                </div>
-                <div class="align-self-center">
-                  <i class="icon-settings primary font-large-2 float-right"></i>
+        <div class="col-xl-3 col-sm-6 col-12">
+          <a href="/admin/settings">
+          <div class="card">
+            <div class="card-content">
+              <div class="card-body">
+                <div class="media d-flex">
+                  <div class="media-body text-left">
+                    <h3 class="primary">Admin</h3>
+                    <span style="color:rgb(97, 97, 97)">Settings</span>
+                  </div>
+                  <div class="align-self-center">
+                    <i class="icon-settings primary font-large-2 float-right"></i>
+                  </div>
                 </div>
               </div>
             </div>
           </div>
+      </a> 
         </div>
-    </a> 
       </div>
-    </div>
-  </section>
-  
-  
-</div>
+    </section>
+    
+    
+  </div>
+</body>
+</html>

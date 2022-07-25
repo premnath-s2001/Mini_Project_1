@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title><%= pageTitle %></title>
     
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.min.css">
@@ -23,20 +23,20 @@
  
 
     <div class="grid grid-cols-1 gap-y-10 sm:grid-cols-2 gap-x-6 lg:grid-cols-3 xl:grid-cols-3 xl:gap-x-8">
-      <% for (var i =1; i <=10;  i++ ) { %>
-      <a href="#" class="group bg-white mx-4 p-4">
-        <div class="w-full aspect-w-1 aspect-h-1 bg-gray-200 rounded-lg overflow-hidden xl:aspect-w-7 xl:aspect-h-8">
-          <img src="https://www.tastingtable.com/img/gallery/everything-you-need-to-know-about-lychee-fruit/l-intro-1648012156.jpg" alt="Tall slender porcelain bottle with natural clay textured body and cork stopper." class="w-full h-full object-center object-cover group-hover:opacity-75">
+      <% if (!products) { %>
+        <h4>No Products found.</h4>
+      <% } else { %>
+        <% for (let product of products) { %>
+        <div class="group bg-white mx-4 p-4">
+          <div class="w-full aspect-w-1 aspect-h-1 bg-gray-200 rounded-lg overflow-hidden xl:aspect-w-7 xl:aspect-h-8">
+            <img src="<%= product.url %>" alt="<%= product.name %>" class="w-full h-full object-center object-cover group-hover:opacity-75">
+          </div>
+          <h3 class="mt-4 text-sm text-gray-700"><%= product.name %></h3>
+          <p class="mt-1 text-lg font-medium text-gray-900">₹ <%= product.price %> per KG</p><br>
+          <a href="/admin/edit-product/<%= product.id %>" class="text-white bg-gradient-to-r from-green-400 via-green-500 to-green-600 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-pink-300 dark:focus:ring-pink-800 font-medium rounded-lg text-sm px-5 py-2.5 text-center mr-2 mb-2">&nbsp;&nbsp;&nbsp;Edit&nbsp;&nbsp;&nbsp;</a>
+          <br><br>
         </div>
-        <h3 class="mt-4 text-sm text-gray-700">Product Name</h3>
-        <p class="mt-1 text-lg font-medium text-gray-900">₹48 per KG</p><br>
-        <button class="bg-green-500 px-6 py-2" style="font-weight: bold;color: rgb(255, 255, 255);">Edit</button>
-        
-        <br><br>
-      </a>
-     
-        
-      
+        <% } %>     
       <% } %>
     </div>
   </div>
