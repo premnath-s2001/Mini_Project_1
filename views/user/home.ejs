@@ -54,7 +54,7 @@
               <div class="full">
                 <div class="center-desk">
                   <div class="logo">
-                    <a href="index.html"><img src="/images/sk2.jpeg"  /></a>
+                    <a href="/"><img src="/images/sk2.jpeg"  /></a>
                   </div>
                 </div>
               </div>
@@ -65,11 +65,22 @@
                 <div class="limit-box">
                   <nav class="main-menu ">
                     <ul class="menu-area-main">
-                      <li class="active"> <a href="index.html">Home</a> </li>
+                      <li class="active"> <a href="/">Home</a> </li>
                       <li> <a href="#about">About</a> </li>
                       <li> <a href="/products">Green Grocery</a> </li>
-                      <li> <a href="/profile">Profile</a> </li>
                       <li> <a href="#staticBackdrop" data-bs-toggle="modal" data-bs-target="#staticBackdrop">Contact Us</a> </li>
+                      
+                      <% if(isAuthenticated1) { %>
+                        <li> <a href="/profile">Profile</a> </li>
+                        <li>
+                          <form action="/logout" method="post">
+                            <input type="hidden" name="_csrf" value="<%= csrfToken %>" />
+                            <button type="submit">Logout</button>
+                          </form>
+                        </li>
+                      <% } else { %>
+                        <li> <a href="/login">Login</a> </li>
+                      <% } %>
                      
                      <li> <a href="#"><img src="icon/icon_b.png"  /></a></li>
                      </ul>
@@ -103,7 +114,7 @@
                       <h1>Pazhamudhir Nilayam</h1>
                       
                      
-                      <a href="#">Contact Us</a> <a href="#">Green Grocery</a>
+                      <a href="#staticBackdrop" data-bs-toggle="modal" data-bs-target="#staticBackdrop">Contact Us</a> <a href="/products">Green Grocery</a>
                     </div>
                   </div>
                   <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12">

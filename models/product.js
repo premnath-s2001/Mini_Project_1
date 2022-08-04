@@ -8,7 +8,6 @@ const productSchema = new Schema({
   name:{type: String},
   price:{type: Number},
   category:{type: String},
-  quantity: {type: Number},
   description: {type: String},
 },{ timestamps: true });
 

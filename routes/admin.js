@@ -20,7 +20,7 @@ router.get('/edit-product/:id', authController.editProduct);
 router.post('/edit-product/:id', authController.postEditProduct);
 
 router.get('/delete-product', authController.getDeleteProduct);
-router.get('/delete-product/:id', authController.deleteProduct);
+router.get('/delete-product/:id', authController.postdeleteProduct);
 
 router.get('/new-orders', authController.getNewOrders);
 

@@ -14,6 +14,7 @@ exports.getSignup = (req, res, next) => {
 exports.postSignup = async function postSignup (req, res, next) {
   const username = req.body.username;
   const email = req.body.email;
+  const mobile = req.body.mobile;
   const password = req.body.password;
   const confirmpassword = req.body.confirmpassword;
   const errors = validationResult(req);
@@ -41,27 +42,32 @@ exports.postSignup = async function postSignup (req, res, next) {
   }
 
   // User does not exist
-  else {
-    if (password != confirmpassword) {
-      return res.status(422).render("auth/signup", {
-        path: "/signup",
-        pageTitle: "Signup",
-        errorMessage: "Passwords do not match",
-      });
-    }
-
-    // Create User
-    else {
-      const hashedPassword = await bcrypt.hash(password, 12);
-      const user = new Customer({
-        name: username,
-        email: email,
-        password: hashedPassword,
-      });
-      await user.save();
-      res.redirect("/login");
-    }
+  if (password != confirmpassword) {
+    return res.status(422).render("auth/signup", {
+      path: "/signup",
+      pageTitle: "Signup",
+      errorMessage: "Passwords do not match",
+    });
   }
+  
+  // Create User
+  const hashedPassword = await bcrypt.hash(password, 12);
+  const customer = new Customer({
+    name: username,
+    email: email,
+    password: hashedPassword,
+    mobile1: mobile,
+    cart: { items: [],},
+  });
+  const saveCustomer = await customer.save();
+  if(!saveCustomer) {
+    return res.status(500).render("auth/signup", {
+      path: "/signup",
+      pageTitle: "Signup",
+      errorMessage: "Something went wrong. Try Again!",
+    });
+  }
+  res.redirect("/login");
 };
 
 // Login
@@ -97,29 +103,33 @@ exports.postLogin = async function(req, res, next) {
       errorMessage: "Email is not found",
     });
   }
-
+  
+  var pwdMatch = await bcrypt.compare(password, user.password);
+  
+  // Passwords Matched
+  if (pwdMatch) {
+    req.session.user = user;
+    req.session.isLoggedIn = true;
+    console.log("Password matched");
+    res.redirect('/');
+  }
+  
+  // Passwords do not match
   else {
-    var pwdMatch = await bcrypt.compare(password, user.password);
-
-    // Passwords Matched
-    if (pwdMatch) {
-      req.session.user = user;
-      req.session.isLoggedIn = true;
-      console.log("Password matched");
-      res.redirect('/home');
-    }
-
-    // Passwords do not match
-    else {
-      res.status(422).render("auth/login",{
-        path: "/login",
-        pageTitle: "Login",
-        errorMessage: "Invalid password",
-      });
-    }
+    res.status(422).render("auth/login",{
+      path: "/login",
+      pageTitle: "Login",
+      errorMessage: "Invalid password",
+    });
   }
 };
 
+exports.postLogout = async function (req, res, next) {
+  var msg = req.session.destroy();
+  if(!msg)
+    console.log(msg);
+  res.redirect("/");
+}
 
 exports.getResetVerify = (req, res, next) => {
   res.render("auth/reset-verify", {

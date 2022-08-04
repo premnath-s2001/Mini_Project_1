@@ -1,0 +1,6 @@
+<form action="/cart" method="post">
+    <input type="hidden" name="_csrf" value="<%= csrfToken %>">
+    <input type="hidden" name="productId" value="<%= product._id %>">
+    <input type="number" name="pQuantity" value="1" min="0.5" step="0.5"  id="" required>
+    <button type="submit" class="text-white bg-gradient-to-r from-green-400 via-green-500 to-green-600 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-green-300 dark:focus:ring-green-800 font-medium rounded-lg text-sm px-5 py-2.5 text-center mr-2 mb-2">Add to Cart</button>
+</form>

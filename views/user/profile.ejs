@@ -55,7 +55,7 @@
   mt-16
 " id="tabs-tabJustify" role="tablist">
   <li class="nav-item flex-grow text-center" role="presentation">
-    <a href="#tabs-homeJustify" class="
+    <a href="/profile" class="
       nav-link
       w-full
       block
@@ -70,11 +70,10 @@
       hover:border-transparent hover:bg-gray-100
       focus:border-transparent
       active
-    " id="tabs-home-tabJustify" data-bs-toggle="pill" data-bs-target="#tabs-homeJustify" role="tab"
-      aria-controls="tabs-homeJustify" aria-selected="true" style="font-size:20px;font-weight:bold"><i  class="icon-user "></i> User Profile</a>
+    " id="tabs-home-tabJustify"  style="font-size:20px;font-weight:bold"><i  class="icon-user "></i> User Profile</a>
   </li>
   <li class="nav-item flex-grow text-center" role="presentation">
-    <a href="#tabs-profileJustify" class="
+    <a href="/cart" class="
       nav-link
       w-full
       block
@@ -88,11 +87,10 @@
       my-2
       hover:border-transparent hover:bg-gray-100
       focus:border-transparent
-    " id="tabs-profile-tabJustify" data-bs-toggle="pill" data-bs-target="#tabs-profileJustify" role="tab"
-      aria-controls="tabs-profileJustify" aria-selected="false" style="font-size:20px;font-weight:bold"><i  class="icon-basket-loaded "></i> Cart</a>
+    " id="tabs-profile-tabJustify"  style="font-size:20px;font-weight:bold"><i  class="icon-basket-loaded "></i> Cart</a>
   </li>
   <li class="nav-item flex-grow text-center" role="presentation">
-    <a href="#tabs-messagesJustify" class="
+    <a href="/orders" class="
       nav-link
       w-full
       block
@@ -106,8 +104,7 @@
       my-2
       hover:border-transparent hover:bg-gray-100
       focus:border-transparent
-    " id="tabs-messages-tabJustify" data-bs-toggle="pill" data-bs-target="#tabs-messagesJustify" role="tab"
-      aria-controls="tabs-messagesJustify" aria-selected="false" style="font-size:20px;font-weight:bold"><i  class="icon-notebook "></i> Order Summary</a>
+    " id="tabs-messages-tabJustify"  style="font-size:20px;font-weight:bold"><i  class="icon-notebook "></i> Order Summary</a>
   </li>
 </ul>
 <div class="tab-content" id="tabs-tabContentJustify">
@@ -223,231 +220,6 @@
       </div>
     </div>
     <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/toastify-js"></script>
-  </div>
-  <div class="tab-pane fade" id="tabs-profileJustify" role="tabpanel" aria-labelledby="tabs-profile-tabJustify">
-    <section class="antialiased bg-white text-gray-600 h-screen px-4" x-data="app" style="margin-top:-5%">
-      <div class="flex flex-col justify-center h-full">
-          <!-- Table -->
-          <div class="w-full max-w-2xl mx-auto bg-gray-100 shadow-lg rounded-sm border border-gray-200">
-              <header class="px-5 py-4 border-b border-gray-500">
-                  <div class="font-semibold text-gray-800">Manage Carts</div>
-              </header>
-  
-              <div class="overflow-x-auto p-3">
-                  <table class="table-auto w-full">
-                      <thead class="text-xs font-semibold uppercase text-gray-800 bg-gray-200">
-                          <tr>
-                            
-                              <th class="p-2">
-                                  <div class="font-semibold text-left">Product Name</div>
-                              </th>
-                              <th class="p-2">
-                                  <div class="font-semibold text-left">Quantity in KG</div>
-                              </th>
-                              <th class="p-2">
-                                  <div class="font-semibold text-left">Total</div>
-                              </th>
-                              <th class="p-2">
-                                <div class="font-semibold text-center">Action</div>
-                            </th>
-                              <th class="p-2">
-                                  <div class="font-semibold text-center"></div>
-                              </th>
-                          </tr>
-                      </thead>
-  
-                      <tbody class="text-sm divide-y divide-gray-100">
-                          <!-- record 1 -->
-                          <tr>
-                              
-                              <td class="p-2">
-                                  <div class="font-medium text-gray-800">
-                                      Apple
-                                  </div>
-                              </td>
-                              <td class="p-2">
-                                <div><input type="number" class="text-left" name="quan" id="quan" min="0" max="25"></div>
-                              </td>
-                              <td class="p-2">
-                                  <div class="text-left font-medium text-green-500">
-                                    ₹150
-                                  </div>
-                              </td>
-                              <td class="p-2">
-                                <div class="inline-flex items-center text-base font-semibold text-gray-900 dark:text-white">
-                                  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<button type="button" class="text-gray-900 bg-gradient-to-r from-red-200 via-red-300 to-yellow-200 hover:bg-gradient-to-bl focus:ring-4 focus:outline-none focus:ring-red-100 dark:focus:ring-red-400 font-medium rounded-lg text-sm px-5 py-2.5 text-center mr-2 mb-2">Order</button>
-                                  </div>
-                            </td>
-                              <td class="p-2">
-                                  <div class="flex justify-center">
-                                      <button>
-                                          <svg class="w-8 h-8 hover:text-blue-600 rounded-full hover:bg-gray-100 p-1"
-                                              fill="none" stroke="currentColor" viewBox="0 0 24 24"
-                                              xmlns="http://www.w3.org/2000/svg">
-                                              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                                  d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16">
-                                              </path>
-                                          </svg>
-                                      </button>
-                                  </div>
-                              </td>
-                          </tr>
-  
-                          <!-- record 2 -->
-                          <tr>
-                              
-                              <td class="p-2">
-                                  <div>
-                                      <div class="font-medium text-gray-800">Tomato</div>
-                                  </div>
-                              </td>
-                              <td class="p-2">
-                                <div><input type="number" class="text-left" name="quan" id="quan" min="0" max="25"></div>
-                              </td>
-                              <td class="p-2">
-                                  <div class="text-left font-medium text-green-500">
-                                    ₹40
-                                  </div>
-                              </td>
-                              <td class="p-2">
-                                <div class="inline-flex items-center text-base font-semibold text-gray-900 dark:text-white">
-                                  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<button type="button" class="text-gray-900 bg-gradient-to-r from-red-200 via-red-300 to-yellow-200 hover:bg-gradient-to-bl focus:ring-4 focus:outline-none focus:ring-red-100 dark:focus:ring-red-400 font-medium rounded-lg text-sm px-5 py-2.5 text-center mr-2 mb-2">Order</button>
-                                  </div>
-                            </td>
-                              <td class="p-2">
-                                  <div class="flex justify-center">
-                                      <button>
-                                          <svg class="w-8 h-8 hover:text-blue-600 rounded-full hover:bg-gray-100 p-1"
-                                              fill="none" stroke="currentColor" viewBox="0 0 24 24"
-                                              xmlns="http://www.w3.org/2000/svg">
-                                              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                                  d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16">
-                                              </path>
-                                          </svg>
-                                      </button>
-                                  </div>
-                              </td>
-                          </tr>
-  
-                          <!-- record 3 -->
-                          <tr>
-                              
-                              <td class="p-2">
-                                  <div>
-                                      <div class="font-medium text-gray-800">Carrot</div>
-                                  </div>
-                              </td>
-                              <td class="p-2">
-                                <div><input type="number" class="text-left" name="quan" id="quan" min="0" max="25"></div>
-                              </td>
-                              <td class="p-2">
-                                  <div class="text-left font-medium text-green-500">₹250</div>
-                              </td>
-                              <td class="p-2">
-                                <div class="inline-flex items-center text-base font-semibold text-gray-900 dark:text-white">
-                                  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<button type="button" class="text-gray-900 bg-gradient-to-r from-red-200 via-red-300 to-yellow-200 hover:bg-gradient-to-bl focus:ring-4 focus:outline-none focus:ring-red-100 dark:focus:ring-red-400 font-medium rounded-lg text-sm px-5 py-2.5 text-center mr-2 mb-2">Order</button>
-                                  </div>
-                            </td>
-                              <td class="p-2">
-                                  <div class="flex justify-center">
-                                      <button>
-                                          <svg class="w-8 h-8 hover:text-blue-600 rounded-full hover:bg-gray-100 p-1"
-                                              fill="none" stroke="currentColor" viewBox="0 0 24 24"
-                                              xmlns="http://www.w3.org/2000/svg">
-                                              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                                  d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16">
-                                              </path>
-                                          </svg>
-                                      </button>
-                                  </div>
-                              </td>
-                          </tr>
-                      </tbody>
-                  </table>
-              </div>
-  
-              <!-- total amount -->
-              <div class="flex justify-end font-bold space-x-4 text-2xl border-t border-gray-100 px-5 py-4">
-                  <div>Total</div>
-                  <div class="text-blue-600">₹ <span x-text="350.00"></span></div>
-              </div>
-
-  
-              <div style="text-align:center">
-    <br>
-    <button type="button" class="text-white bg-gradient-to-r from-purple-500 to-pink-500 hover:bg-gradient-to-l focus:ring-4 focus:outline-none focus:ring-purple-200 dark:focus:ring-purple-800 font-medium rounded-lg text-sm px-5 py-2.5 text-center mr-2 mb-2">Order All Items</button>
-  
-  </div>
-  <br>
-          </div>
-     
-  </section>
-
-  </div>
- 
-  <div class="tab-pane fade" id="tabs-messagesJustify" role="tabpanel" aria-labelledby="tabs-profile-tabJustify">
-    <div class="flex flex-col mx-24">
-      <div class="overflow-x-auto sm:-mx-6 lg:-mx-8">
-        <div class="py-4 inline-block min-w-full sm:px-6 lg:px-8">
-          <div class="overflow-hidden">
-            <table class="min-w-full text-center">
-              <thead class="border-b bg-gray-800">
-                <tr>
-                  <th scope="col" class="text-sm font-medium text-white px-6 py-4">
-                    #
-                  </th>
-                  <th scope="col" class="text-sm font-medium text-white px-6 py-4">
-                    Products
-                  </th>
-                  <th scope="col" class="text-sm font-medium text-white px-6 py-4">
-                    Price
-                  </th>
-                  <th scope="col" class="text-sm font-medium text-white px-6 py-4">
-                    Status
-                  </th>
-                  <th scope="col" class="text-sm font-medium text-white px-6 py-4">
-                    Invoice
-                  </th>
-                </tr>
-              </thead class="border-b">
-              <tbody>
-                <tr class="bg-white border-b">
-                  <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">1</td>
-                  <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
-                    Apple,Mango
-                  </td>
-                  <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
-                    ₹350
-                  </td>
-                  <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
-                  ✅ Delivered
-                  </td>
-                  <td class="text-sm px-6 py-4 whitespace-nowrap">
-                    <a href="" class="icon-cloud-download primary"></a>
-                  </td>
-                </tr class="bg-white border-b">
-                <tr class="bg-white border-b">
-                  <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">2</td>
-                  <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
-                    Tomato,Carrot
-                  </td>
-                  <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
-                    ₹80
-                  </td>
-                  <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
-                    ✅ Delivered
-                  </td>
-                  <td class="text-sm px-6 py-4 whitespace-nowrap">
-                    <a href="" class="icon-cloud-download primary"></a>
-                  </td>
-                </tr>
-               
-              </tbody>
-            </table>
-          </div>
-        </div>
-      </div>
-    </div>
   </div>
 </div>
 

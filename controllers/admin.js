@@ -27,9 +27,9 @@ exports.getAddProduct = (req, res, next) => {
 exports.postAddProduct = async function (req, res, next) {
   const purl = req.body.purl;
   const pname = req.body.pname;
-  const pprice = req.body.pprice;
+  const pprice = Number.parseFloat(req.body.pprice);
+  const pquantity = Number.parseFloat(req.body.pquantity);
   const pcategory = req.body.pcategory;
-  const pquantity = req.body.pquantity;
   const pdescription = req.body.pdescription;
   const product = new Product({
     url: purl,
@@ -63,16 +63,16 @@ exports.getProductDetail = async function(req, res, next) {
   });
 };
 
-  exports.getEditProduct = async function(req, res, next) {
+exports.getEditProduct = async function(req, res, next) {
     const products = await Product.find();
     res.render("admin/editproduct", {
       path: "/login",
       pageTitle: "Edit Product",
       products: products.length===0?null:products,
     });
-  };
+ };
 
-  exports.editProduct = async function(req, res, next) {
+exports.editProduct = async function(req, res, next) {
     const productId = req.params.id;
     const product = await Product.findById(productId);
     if(!product) {
@@ -84,14 +84,14 @@ exports.getProductDetail = async function(req, res, next) {
       addNew: false,
       product: product,
     });
-  };
+};
 
 exports.postEditProduct = async function(req, res, next) {
   const purl = req.body.purl;
   const pname = req.body.pname;
-  const pprice = req.body.pprice;
+  const pprice = Number.parseFloat(req.body.pprice);
+  const pquantity = Number.parseFloat(req.body.pquantity);
   const pcategory = req.body.pcategory;
-  const pquantity = req.body.pquantity;
   const pdescription = req.body.pdescription;
   const pid = req.body.pid;
   const product = await Product.findById(pid);
@@ -101,24 +101,24 @@ exports.postEditProduct = async function(req, res, next) {
   product.url = purl;
   product.name = pname;
   product.price = pprice;
-  product.category = pcategory;
   product.quantity = pquantity;
+  product.category = pcategory;
   product.description = pdescription;
   
   await product.save();
   res.redirect('/admin/products');
-  }
+}
 
-  exports.getDeleteProduct = async function(req, res, next) {
+exports.getDeleteProduct = async function(req, res, next) {
     const products = await Product.find();
     res.render("admin/delproduct", {
       path: "/login",
       pageTitle: "Delete Products",
       products: products,
     });
-  };
+};
 
-  exports.deleteProduct = async function(req, res, next) {
+exports.postdeleteProduct = async function(req, res, next) {
     const productId = req.params.id;
     const product = await Product.findById(productId);
     if(!product) {
@@ -129,7 +129,7 @@ exports.postEditProduct = async function(req, res, next) {
       return next(new Error('Product not deleted'));
     }
     res.redirect('/admin/delete-product');
-  }
+}
 
   exports.getNewOrders = (req, res, next) => {
     res.render("admin/neworders", {
