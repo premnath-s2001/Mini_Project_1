@@ -4,10 +4,26 @@ exports.getHome = (req, res, next) => {
     res.render("user/home", {
       path: "/",
     });
-  };
+};
+
+exports.homeRedirect = (req, res, next) => {
+    res.redirect("/");
+};
   
 exports.getProducts= async function(req, res, next) {
   const products = await Products.find();
+  res.render("user/viewproducts", {
+    path: "/products",
+    pageTitle: "Products",
+    products: products.length>0?products:null
+  });
+};
+
+exports.getQueryProducts = async function(req, res, next) {
+  const searchQuery = req.body.search;
+  const productsSameAsName = await Products.find({name: {$regex: searchQuery, $options: 'i'}});
+  const productsSameAsCategory = await Products.find({category: {$regex: searchQuery, $options: 'i'}});
+  const products = productsSameAsName.concat(productsSameAsCategory);
   res.render("user/viewproducts", {
     path: "/products",
     pageTitle: "Products",
@@ -58,15 +74,6 @@ exports.postCart = async function (req, res,next) {
   res.redirect("/products");
 }
 
-exports.getOrders = async function(req, res, next) {
-  const orders = await req.user.getOrders();
-  res.render("user/orders", {
-    path: "/orders",
-    pageTitle: "Your Orders",
-    orders: orders
-  });
-}
-
 exports.postDeleteCartItem = async function(req, res, next) {
   const prodId = req.body.productId;
   const product = await Products.findById(prodId);
@@ -78,4 +85,12 @@ exports.postDeleteCartItem = async function(req, res, next) {
     return new Error("Cart not found");
   }
   res.redirect("/cart");
+}
+
+exports.getOrders = async function(req, res, next) {
+  res.render("user/orders", {
+    path: "/orders",
+    pageTitle: "Your Orders",
+    orders: []
+  });
 }

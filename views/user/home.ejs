@@ -68,6 +68,13 @@
                       <li class="active"> <a href="/">Home</a> </li>
                       <li> <a href="#about">About</a> </li>
                       <li> <a href="/products">Green Grocery</a> </li>
+                      <li>
+                         <form action="/products/search" method="post">
+                          <input type="text" name="search" placeholder="" required>
+                          <input type="hidden" name="_csrf" value="<%= csrfToken %>">
+                          <button type="submit"><i class="fa fa-search"></i></button>
+                         </form> 
+                        </li>
                       <li> <a href="#staticBackdrop" data-bs-toggle="modal" data-bs-target="#staticBackdrop">Contact Us</a> </li>
                       
                       <% if(isAuthenticated1) { %>
@@ -172,7 +179,7 @@
                     <div class="images_box">
                       <figure><img style="margin-top:-9%" src="/images/bg1.png"></figure>
                     </div>
-                  </div>
+                  </div>  
                 </div>
               </div>
             </div>

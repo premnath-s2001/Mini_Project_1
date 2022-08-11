@@ -16,7 +16,7 @@
 <body>
   <nav class="bg-white border-gray-200 px-2 sm:px-4 py-2.5 fixed w-full top-0 rounded dark:bg-neutral-600" style="z-index:1;">
     <div class="container flex flex-wrap justify-between items-center mx-auto">
-    <a href="https://flowbite.com" class="flex items-center">
+    <a href="/" class="flex items-center">
     <img src="/images/sk2.jpeg" class="mr-3 h-6 sm:h-9" alt="Flowbite Logo">
     <span class="self-center text-xl font-semibold whitespace-nowrap dark:text-white">SK Pazhamudhir Nilayam</span>
     </a>
@@ -126,6 +126,7 @@
                   <th scope="col" class="text-sm font-medium text-white px-6 py-4">
                     Price
                   </th>
+                  <th scope="col" class="text-sm font-medium text-white px-6 py-4">Date</th>
                   <th scope="col" class="text-sm font-medium text-white px-6 py-4">
                     Status
                   </th>
@@ -135,37 +136,36 @@
                 </tr>
               </thead class="border-b">
               <tbody>
+                <% if(orders.length > 0) { %>
+                <% for(var i = 0; i < orders.length; i++) { %>
                 <tr class="bg-white border-b">
-                  <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">1</td>
-                  <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
-                    Apple,Mango
+                  <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">
+                    <%= i + 1 %>
                   </td>
                   <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
-                    ₹350
+                    <%= orders[i].products %>
                   </td>
                   <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
-                  ✅ Delivered
+                    <%= orders[i].price %>
+                  </td>
+                  <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
+                    <%= orders[i].date %>
+                  </td>
+                  <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
+                    <%= (orders[i].status==="pending")? "⏳ Pending" : "✅ Delivered" %>
                   </td>
                   <td class="text-sm px-6 py-4 whitespace-nowrap">
                     <a href="" class="icon-cloud-download primary"></a>
                   </td>
                 </tr class="bg-white border-b">
+                <% } %>
+                <% } else { %>
                 <tr class="bg-white border-b">
-                  <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">2</td>
-                  <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
-                    Tomato,Carrot
-                  </td>
-                  <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
-                    ₹80
-                  </td>
-                  <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
-                    ✅ Delivered
-                  </td>
-                  <td class="text-sm px-6 py-4 whitespace-nowrap">
-                    <a href="" class="icon-cloud-download primary"></a>
+                  <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900" colspan="5">
+                    No Orders Found
                   </td>
                 </tr>
-               
+                <% } %>
               </tbody>
             </table>
           </div>

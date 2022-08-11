@@ -13,6 +13,9 @@ const orderSchema = new Schema({
         email: {type: String, required: true},
         userId: {type: Schema.Types.ObjectId, required: true, ref: 'user'},
     },
+    date: {type: Date, default: Date.now},
+    status: {type: String, default: 'pending'},
+    totalPrice: {type: Number, required: true},
 });
 
 module.exports = mongoose.model('Order', orderSchema);
