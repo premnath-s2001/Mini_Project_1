@@ -10,6 +10,17 @@
     <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.min.css">
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="https://kit.fontawesome.com/79e9b7a5af.js" crossorigin="anonymous"></script>
+    <style type="text/css">
+      #outer
+{
+    width:100%;
+    text-align: center;
+}
+.inner
+{
+    display: inline-block;
+}
+      </style>
 </head>
 
 <body style="margin-top:-2%;background: linear-gradient(to top, #808080ba, #0c0c0ccc), url(https://images.unsplash.com/photo-1542838132-92c53300491e?ixlib=rb-1.2.1&raw_url=true&q=80&fm=jpg&crop=entropy&cs=tinysrgb&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=774) no-repeat top center;background-repeat: no-repeat;background-attachment: fixed;background-size: cover">
@@ -69,10 +80,24 @@
                 <img src="<%= product.url %>" alt="<%= product.name %>" class="w-full h-full object-center object-cover group-hover:opacity-75">
               </div>
               <h3 class="mt-4 text-sm text-gray-700"><%= product.name %></h3>
-              <p class="mt-1 text-lg font-medium text-gray-900">₹<%= product.price %>per KG</p><br>
-              <button type="button" onclick="location.href='http://localhost:3000/product-detail/<%= product.id %>'" class="text-white bg-gradient-to-r from-pink-400 via-pink-500 to-pink-600 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-pink-300 dark:focus:ring-pink-800 font-medium rounded-lg text-sm px-5 py-2.5 text-center mr-2 mb-2">&nbsp;&nbsp;&nbsp;Details&nbsp;&nbsp;&nbsp;</button>
-              <% if (isAuthenticated1) { %>
-                <%- include('../include/add-to-cart.ejs', { product: product }) %>
+              <form action="/cart" method="post">
+                <div id="outer">
+                  <p style="margin-left:-70px" class="mt-1 text-lg font-medium text-gray-900 inner">₹<%= product.price %>per KG &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</p>
+                  <% if (isAuthenticated1) { %>
+                  <p class="inner" style="color: rgb(129, 9, 9);font-weight: bold"> Qnt : <input type="number" name="pQuantity"  style="width:50px; border: 1px solid black;text-align: center;" value="1" min="0.5" step="0.5"  id="" required></p>
+                  <% } %>
+                </div>
+              
+              <br>
+              <div id="outer">
+                <button type="button" onclick="location.href='http://localhost:3000/product-detail/<%= product.id %>'" class="inner text-white bg-gradient-to-r from-pink-400 via-pink-500 to-pink-600 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-pink-300 dark:focus:ring-pink-800 font-medium rounded-lg text-sm px-5 py-2.5 text-center mr-2 mb-2">&nbsp;&nbsp;&nbsp;Details&nbsp;&nbsp;&nbsp;</button>
+              <% if (isAuthenticated1) { %>         
+                <input type="hidden" name="_csrf" value="<%= csrfToken %>">
+                <input type="hidden" name="productId" value="<%= product._id %>">
+                <button type="submit" class=" inner text-white bg-gradient-to-r from-green-400 via-green-500 to-green-600 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-green-300 dark:focus:ring-green-800 font-medium rounded-lg text-sm px-5 py-2.5 text-center mr-2 mb-2">Add to Cart</button>
+              </div>
+              
+</form>
               <% } %>
               <br><br>
             </a>
