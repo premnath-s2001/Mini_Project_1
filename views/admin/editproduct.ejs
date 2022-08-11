@@ -24,6 +24,13 @@
       <img src="https://img.icons8.com/flat-round/64/000000/back--v1.png" width="30" height="30" class="d-inline-block align-top" alt="">
       Go Back
     </a>
+    <li>
+      <form action="/products/search" method="post">
+       <input type="text" name="search" placeholder="" required>
+       <input type="hidden" name="_csrf" value="<%= csrfToken %>">
+       <button type="submit"><i class="fa fa-search"></i></button>
+      </form> 
+     </li>
   </nav>
 <div >
   <br>

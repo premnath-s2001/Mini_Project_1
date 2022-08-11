@@ -12,7 +12,76 @@
     <script src="https://kit.fontawesome.com/79e9b7a5af.js" crossorigin="anonymous"></script>
     <link rel="stylesheet" type="text/css" href="https://pixinvent.com/stack-responsive-bootstrap-4-admin-template/app-assets/fonts/simple-line-icons/style.min.css">
     <script defer src="https://unpkg.com/alpinejs@3.10.2/dist/cdn.min.js"></script>
-</head>
+  <style type="text/css">
+    @import url("https://fonts.googleapis.com/css?family=Open+Sans:400,400i,700");
+
+
+
+
+/* Open modal button styling */
+#open-modal {
+  border: none;
+  background-color: #2196f3;
+  border-radius: 1.5rem;
+  padding: 0.7rem 2.3rem;
+  font-size: 1.1rem;
+  font-weight: bold;
+  cursor: pointer;
+  color: #fff;
+  user-select: none;
+}
+
+#open-modal:hover {
+  filter: brightness(1.1);
+}
+
+/* Modal styling */
+.modal {
+  display: none;
+  position: fixed;
+  margin-top:-17%;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 200%;
+  background-color: rgba(0, 0, 0, 0.2);
+}
+
+.modal-content {
+  margin: 20% auto;
+  max-width: 500px;
+  background-color: #fff;
+  padding: 20px;
+  animation: scale 0.5s ease;
+  border-radius: 10px;
+  box-shadow: 6.7px 6.7px 5.3px rgba(0, 0, 0, 0.02),
+    22.3px 22.3px 17.9px rgba(0, 0, 0, 0.03),
+    100px 100px 80px rgba(0, 0, 0, 0.05);
+}
+
+.modal-body {
+  margin-top: 5px;
+}
+
+#close-modal {
+  float: right;
+  font-size: 1.2rem;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+/* Modal scale animation */
+@keyframes scale {
+  from {
+    transform: scale(0);
+  }
+
+  to {
+    transform: scale(1);
+  }
+}
+    </style>
+  </head>
 <body>
   <nav class="bg-white border-gray-200 px-2 sm:px-4 py-2.5 fixed w-full top-0 rounded dark:bg-neutral-600" style="z-index:1;">
     <div class="container flex flex-wrap justify-between items-center mx-auto">
@@ -69,7 +138,7 @@
       my-2
       hover:border-transparent hover:bg-gray-100
       focus:border-transparent
-      active
+      
     " id="tabs-home-tabJustify"  style="font-size:20px;font-weight:bold"><i  class="icon-user "></i> User Profile</a>
   </li>
   <li class="nav-item flex-grow text-center" role="presentation">
@@ -87,6 +156,7 @@
       my-2
       hover:border-transparent hover:bg-gray-100
       focus:border-transparent
+      active
     " id="tabs-profile-tabJustify"  style="font-size:20px;font-weight:bold"><i  class="icon-basket-loaded "></i> Cart</a>
   </li>
   <li class="nav-item flex-grow text-center" role="presentation">
@@ -194,9 +264,25 @@
               <div style="text-align:center">
     <br>
     <% if (cartItems.length > 0) { %>
-      <a href="/checkout"><button type="button" class="text-white bg-gradient-to-r from-purple-500 to-pink-500 hover:bg-gradient-to-l focus:ring-4 focus:outline-none focus:ring-purple-200 dark:focus:ring-purple-800 font-medium rounded-lg text-sm px-5 py-2.5 text-center mr-2 mb-2">Order All Items</button></a>
+      <button type="button" id="open-modal" class="text-white bg-gradient-to-r from-purple-500 to-pink-500 hover:bg-gradient-to-l focus:ring-4 focus:outline-none focus:ring-purple-200 dark:focus:ring-purple-800 font-medium rounded-lg text-sm px-5 py-2.5 text-center mr-2 mb-2" data-modal-toggle="popup-modal">Order All Items</button>
     <% } %>
+    
 
+<div class="modal">
+  <div class="modal-content">
+    <div class="modal-header">
+      <span id="close-modal">&times;</span>
+      <h3>Do you want to order all items</h3>
+      <br>
+    </div>
+    <div class="modal-body">
+      <a href="/checkout" class="text-white bg-gradient-to-r from-green-400 via-green-500 to-green-600 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-green-300 dark:focus:ring-green-800 shadow-lg shadow-green-500/50 dark:shadow-lg dark:shadow-green-800/80 font-medium rounded-lg text-sm px-5 py-2.5 text-center mr-2 mb-2">Proceed</a>
+      <a href="/cart" class="text-white bg-gradient-to-r from-red-400 via-red-500 to-red-600 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-red-300 dark:focus:ring-red-800 shadow-lg shadow-red-500/50 dark:shadow-lg dark:shadow-red-800/80 font-medium rounded-lg text-sm px-5 py-2.5 text-center mr-2 mb-2">Cancel</a>
+    <br>
+    </div>
+    <br>
+  </div>
+</div>
   </div>
   <br>
           </div>
@@ -206,7 +292,19 @@
   </div>
  
 </div>
+<script type="text/javascript">
+  const modal = document.querySelector(".modal");
+const openModalBtn = document.querySelector("#open-modal");
+const closeModalBtn = document.querySelector("#close-modal");
 
+openModalBtn.addEventListener("click", function () {
+  modal.style.display = "block";
+});
+
+closeModalBtn.addEventListener("click", function () {
+  modal.style.display = "none";
+});
+  </script>
 <script src="https://cdn.jsdelivr.net/npm/tw-elements/dist/js/index.min.js"></script>
 </body>
 </html>
