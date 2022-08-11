@@ -109,6 +109,18 @@ exports.postEditProduct = async function(req, res, next) {
   res.redirect('/admin/products');
 }
 
+exports.getQueryProducts = async function(req, res, next) {
+  const searchQuery = req.body.search;
+  const productsSameAsName = await Product.find({name: {$regex: searchQuery, $options: 'i'}});
+  const productsSameAsCategory = await Product.find({category: {$regex: searchQuery, $options: 'i'}});
+  const products = productsSameAsName.concat(productsSameAsCategory);
+  res.render("admin/viewproducts", {
+    path: "/products",
+    pageTitle: "Products",
+    products: products.length>0?products:null
+  });
+};
+
 exports.getDeleteProduct = async function(req, res, next) {
     const products = await Product.find();
     res.render("admin/delproduct", {

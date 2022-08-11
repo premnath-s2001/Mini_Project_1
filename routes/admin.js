@@ -15,9 +15,12 @@ router.get('/products', authController.getViewProducts);
 
 router.get('/product-detail/:id', authController.getProductDetail);
 
+router.post('/products/search', authController.getQueryProducts);
+
 router.get('/edit-product', authController.getEditProduct);
 router.get('/edit-product/:id', authController.editProduct);
 router.post('/edit-product/:id', authController.postEditProduct);
+
 
 router.get('/delete-product', authController.getDeleteProduct);
 router.get('/delete-product/:id', authController.postdeleteProduct);
