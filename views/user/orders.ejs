@@ -144,10 +144,12 @@
                     <%= i + 1 %>
                   </td>
                   <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
-                    <%= orders[i].products %>
+                    <% for(var product of products[i]) { %>
+                    <%= product.name %>, 
+                    <% } %>
                   </td>
                   <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
-                    <%= orders[i].price %>
+                    <%= orders[i].totalPrice %>
                   </td>
                   <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
                     <%= orders[i].date %>

@@ -1,4 +1,6 @@
 const Products = require('../models/product');
+const Customer = require('../models/user');
+const Order = require('../models/order');
 
 exports.getHome = (req, res, next) => {
     res.render("user/home", {
@@ -88,9 +90,47 @@ exports.postDeleteCartItem = async function(req, res, next) {
 }
 
 exports.getOrders = async function(req, res, next) {
+  const orders = await Order.find({'user.userId': req.session.user._id});
+  var products = [];
+  for(let order of orders) {
+    var orderedProducts = [];
+    for(let product of order.products) {
+      var item = await Products.findById(product.productId);
+      orderedProducts.push(item);
+    }
+    products.push(orderedProducts);
+  }
   res.render("user/orders", {
     path: "/orders",
     pageTitle: "Your Orders",
-    orders: []
+    orders: orders.length>0?orders:[],
+    products: products,
   });
 }
+
+exports.getCreateOrder = async function(req, res, next) {
+  const user = await Customer.findById(req.session.user._id).select('-password');
+  const orderedProducts = user.cart.items;
+  const orderedUser = {email: user.email, userId: user._id};
+  
+  let totalPrice = Number.parseFloat("0");
+  for(var i=0; i<orderedProducts.length; i++) {
+    var product = await Products.findById(orderedProducts[i].productId._id);
+    totalPrice += orderedProducts[i].quantity * product.price;
+  }
+  
+  const order = new Order({
+    user: orderedUser,
+    products: orderedProducts,
+    totalPrice: totalPrice,
+  });
+  
+  const orderMsg = await order.save();
+  if(!orderMsg) {
+    return new Error("Order not saved");
+  }
+  
+  user.cart.items = [];
+  await user.save();
+  res.redirect("/orders");
+};

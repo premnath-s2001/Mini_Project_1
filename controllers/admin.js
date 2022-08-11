@@ -1,4 +1,6 @@
 const Product = require('../models/product');
+const Order = require('../models/order');
+const Customer = require('../models/user');
 
 exports.getAdminLogin = (req, res, next) => {
   res.render("admin/login", {
@@ -143,26 +145,69 @@ exports.postdeleteProduct = async function(req, res, next) {
     res.redirect('/admin/delete-product');
 }
 
-  exports.getNewOrders = (req, res, next) => {
-    res.render("admin/neworders", {
-      path: "/login",
-      pageTitle: "Login",
-      editing:0
-    });
-  };
+exports.postDeliver = async function(req, res, next) {
+  const orderId = req.body.orderId;
+  const order = await Order.findById(orderId);
+  if(!order) {
+    return next(new Error('Order not found'));
+  }
+  order.status = "delivered";
+  await order.save();
+  res.redirect('/admin/new-orders');
+};
 
-  exports.getAllOrders = (req, res, next) => {
-    res.render("admin/totalorders", {
-      path: "/login",
-      pageTitle: "Login",
-      editing:0
-    });
-  };
+exports.getNewOrders = async function(req, res, next) {
+  const orders = await Order.find({status: "pending"});
+  var products = [];
+  var users = [];
+  for(let order of orders) {
+    var orderedProducts = [];
+    var orderedUsers = await Customer.findById(order.user.userId);
+    for(let product of order.products) {
+      var item = await Product.findById(product.productId);
+      orderedProducts.push(item);
+    }
+    products.push(orderedProducts);
+    users.push(orderedUsers);
+  }
+  
+  res.render("admin/neworders", {
+    path: "/admin/orders",
+    pageTitle: "Recent Orders",
+    orders: orders.length>0?orders:[],
+    products: products,
+    users: users,
+  });
+};
+
+exports.getAllOrders = async function(req, res, next) {
+  const orders = await Order.find({status: "delivered"});
+  var products = [];
+  var users = [];
+  for(let order of orders) {
+    var orderedProducts = [];
+    var orderedUsers = await Customer.findById(order.user.userId);
+    for(let product of order.products) {
+      var item = await Product.findById(product.productId);
+      orderedProducts.push(item);
+    }
+    products.push(orderedProducts);
+    users.push(orderedUsers);
+  }
+  res.render("admin/totalorders", {
+    path: "/admin/all-orders",
+    pageTitle: "Delivered Orders",
+    orders: orders.length>0?orders:[],
+    products: products,
+    users: users,
+  });
+};
+
 
   exports.getAdminSettings = (req, res, next) => {
     res.render("admin/settings", {
       path: "/login",
-      pageTitle: "Login",
+      pageTitle: "Settings",
       err:0
     });
   };

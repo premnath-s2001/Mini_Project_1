@@ -29,6 +29,8 @@ router.get('/new-orders', authController.getNewOrders);
 
 router.get('/all-orders', authController.getAllOrders);
 
-router.get('/settings', authController.getAdminSettings)
+router.get('/settings', authController.getAdminSettings);
+
+router.post('/deliver', authController.postDeliver);
 
 module.exports = router;
