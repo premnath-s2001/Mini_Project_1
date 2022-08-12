@@ -121,7 +121,7 @@ button:focus {
                         </div>
 
                         <div class="row justify-content-between mt-2 text-left">
-                            <div class="form-group col-sm-6 flex-column d-flex">
+                            <div class="form-group col-sm-12 flex-column d-flex">
                                 <label class="form-control-label px-1" style="text-align:left">Product Type</label>
                                 <select name="pcategory">
                                     <option selected="selected" value="Fruits">Fruits</option>
@@ -129,10 +129,10 @@ button:focus {
                                     <option>Snacks</option>
                                 </select>
                             </div>
-                            <div class="form-group col-sm-6 flex-column d-flex">
+                            <!-- <div class="form-group col-sm-6 flex-column d-flex">
                                 <label class="form-control-label px-1" style="text-align:right">Quantity Available in Kg</label>
                                 <input type="number" id="pquantity" name="pquantity" value="<%= (addNew?'':product.quantity) %>" onblur="validate(2)">
-                            </div>
+                            </div> -->
                         </div>      
 
                         <div class="row justify-content-between mt-2 text-left">
@@ -143,7 +143,7 @@ button:focus {
                         </div>
                         <br>
                         <input type="hidden" name="_csrf" value="<%= csrfToken %>">
-                        <input type="submit" class="btn-block btn-primary">
+                        <input type="submit" value="Add Product" class="btn-block btn-primary">
                     </div>
                          
                     </form>

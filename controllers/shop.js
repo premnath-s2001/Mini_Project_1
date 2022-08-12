@@ -48,9 +48,11 @@ exports.getCart = async function(req, res, next) {
     return new Error('No cart found');
   }
   const cart = user.cart;
-  var totalPrice = 0;
-  for(var i=0; i<cart.items.length; i++) {
-    totalPrice += cart.items[i].quantity * cart.items[i].productId.price;
+  const orderedProducts = user.cart.items;
+  let totalPrice = Number.parseFloat("0");
+  for(var i=0; i< orderedProducts.length; i++) {
+    var product = await Products.findById(orderedProducts[i].productId._id);
+    totalPrice += orderedProducts[i].quantity * product.price;
   }
   res.render("user/cart", {
     path: "/cart",
@@ -90,7 +92,7 @@ exports.postDeleteCartItem = async function(req, res, next) {
 }
 
 exports.getOrders = async function(req, res, next) {
-  const orders = await Order.find({'user.userId': req.session.user._id});
+  const orders = await Order.find({'user.userId': req.session.user._id}).sort({"status":-1,"date":-1});
   var products = [];
   for(let order of orders) {
     var orderedProducts = [];

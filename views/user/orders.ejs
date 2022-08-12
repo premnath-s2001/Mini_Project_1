@@ -9,9 +9,17 @@
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" />
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/tw-elements/dist/css/index.min.css" />
     <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://unpkg.com/flowbite@1.4.4/dist/flowbite.js"></script>
     <script src="https://kit.fontawesome.com/79e9b7a5af.js" crossorigin="anonymous"></script>
     <link rel="stylesheet" type="text/css" href="https://pixinvent.com/stack-responsive-bootstrap-4-admin-template/app-assets/fonts/simple-line-icons/style.min.css">
     <script defer src="https://unpkg.com/alpinejs@3.10.2/dist/cdn.min.js"></script>
+    <style>
+       @media only screen and (max-width: 400px) {
+  .mobile {
+    margin-left:-40%;
+    width:175%;
+  }}
+    </style>
 </head>
 <body>
   <nav class="bg-white border-gray-200 px-2 sm:px-4 py-2.5 fixed w-full top-0 rounded dark:bg-neutral-600" style="z-index:1;">
@@ -110,16 +118,19 @@
 </ul>
 <div class="tab-content" id="tabs-tabContentJustify">
   
-  <div class="tab-pane fade show active" id="tabs-messagesJustify" role="tabpanel" aria-labelledby="tabs-profile-tabJustify">
-    <div class="flex flex-col mx-24">
-      <div class="overflow-x-auto sm:-mx-6 lg:-mx-8">
+  <div class="tab-pane fade show active "  id="tabs-messagesJustify" role="tabpanel" aria-labelledby="tabs-profile-tabJustify">
+    <div class="flex flex-col mx-24 ">
+      <div class="overflow-x-auto sm:-mx-6 lg:-mx-8 mobile">
         <div class="py-4 inline-block min-w-full sm:px-6 lg:px-8">
           <div class="overflow-hidden">
-            <table class="min-w-full text-center">
+            <table class="w-full text-center " >
               <thead class="border-b bg-gray-800">
                 <tr>
                   <th scope="col" class="text-sm font-medium text-white px-6 py-4">
                     #
+                  </th>
+                  <th scope="col" class="text-sm font-medium text-white px-6 py-4">
+                    Order ID
                   </th>
                   <th scope="col" class="text-sm font-medium text-white px-6 py-4">
                     Products
@@ -131,9 +142,6 @@
                   <th scope="col" class="text-sm font-medium text-white px-6 py-4">
                     Status
                   </th>
-                  <th scope="col" class="text-sm font-medium text-white px-6 py-4">
-                    Invoice
-                  </th>
                 </tr>
               </thead class="border-b">
               <tbody>
@@ -142,6 +150,9 @@
                 <tr class="bg-white border-b">
                   <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">
                     <%= i + 1 %>
+                  </td>
+                  <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
+                    # <%= JSON.stringify(orders[i]._id).substring(1,8) %>
                   </td>
                   <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
                     <% for(var product of products[i]) { %>
@@ -157,9 +168,7 @@
                   <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
                     <%= (orders[i].status==="pending")? "⏳ Pending" : "✅ Delivered" %>
                   </td>
-                  <td class="text-sm px-6 py-4 whitespace-nowrap">
-                    <a href="" class="icon-cloud-download primary"></a>
-                  </td>
+                  
                 </tr class="bg-white border-b">
                 <% } %>
                 <% } else { %>

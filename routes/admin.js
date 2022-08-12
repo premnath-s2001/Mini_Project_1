@@ -16,6 +16,8 @@ router.get('/products', authController.getViewProducts);
 router.get('/product-detail/:id', authController.getProductDetail);
 
 router.post('/products/search', authController.getQueryProducts);
+router.post('/edit-product/search',authController.postEditQueryProducts);
+router.post('/delete-product/search', authController.postDeleteQueryProducts);
 
 router.get('/edit-product', authController.getEditProduct);
 router.get('/edit-product/:id', authController.editProduct);

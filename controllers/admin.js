@@ -30,7 +30,7 @@ exports.postAddProduct = async function (req, res, next) {
   const purl = req.body.purl;
   const pname = req.body.pname;
   const pprice = Number.parseFloat(req.body.pprice);
-  const pquantity = Number.parseFloat(req.body.pquantity);
+  
   const pcategory = req.body.pcategory;
   const pdescription = req.body.pdescription;
   const product = new Product({
@@ -38,7 +38,7 @@ exports.postAddProduct = async function (req, res, next) {
     name: pname,
     price: pprice,
     category: pcategory,
-    quantity: pquantity,
+  
     description: pdescription,
   });
   await product.save();
@@ -92,7 +92,7 @@ exports.postEditProduct = async function(req, res, next) {
   const purl = req.body.purl;
   const pname = req.body.pname;
   const pprice = Number.parseFloat(req.body.pprice);
-  const pquantity = Number.parseFloat(req.body.pquantity);
+ 
   const pcategory = req.body.pcategory;
   const pdescription = req.body.pdescription;
   const pid = req.body.pid;
@@ -103,7 +103,7 @@ exports.postEditProduct = async function(req, res, next) {
   product.url = purl;
   product.name = pname;
   product.price = pprice;
-  product.quantity = pquantity;
+ 
   product.category = pcategory;
   product.description = pdescription;
   
@@ -157,7 +157,7 @@ exports.postDeliver = async function(req, res, next) {
 };
 
 exports.getNewOrders = async function(req, res, next) {
-  const orders = await Order.find({status: "pending"});
+  const orders = await Order.find({status: "pending"}).sort({"date":-1});
   var products = [];
   var users = [];
   for(let order of orders) {
@@ -181,7 +181,7 @@ exports.getNewOrders = async function(req, res, next) {
 };
 
 exports.getAllOrders = async function(req, res, next) {
-  const orders = await Order.find({status: "delivered"});
+  const orders = await Order.find({status: "delivered"}).sort({"date":-1});
   var products = [];
   var users = [];
   for(let order of orders) {
@@ -203,11 +203,35 @@ exports.getAllOrders = async function(req, res, next) {
   });
 };
 
+exports.postEditQueryProducts = async function(req, res, next) {
+  const searchQuery = req.body.search;
+  const productsSameAsName = await Product.find({name: {$regex: searchQuery, $options: 'i'}});
+  const productsSameAsCategory = await Product.find({category: {$regex: searchQuery, $options: 'i'}});
+  const products = productsSameAsName.concat(productsSameAsCategory);
+  res.render("admin/editproduct", {
+    path: "/edit/products",
+    pageTitle: "Edit Products",
+    products: products.length>0?products:null
+  });
+};
 
-  exports.getAdminSettings = (req, res, next) => {
-    res.render("admin/settings", {
-      path: "/login",
-      pageTitle: "Settings",
-      err:0
-    });
-  };
+exports.postDeleteQueryProducts = async function(req, res, next) {
+  const searchQuery = req.body.search;
+  const productsSameAsName = await Product.find({name: {$regex: searchQuery, $options: 'i'}});
+  const productsSameAsCategory = await Product.find({category: {$regex: searchQuery, $options: 'i'}});
+  const products = productsSameAsName.concat(productsSameAsCategory);
+  res.render("admin/delproduct", {
+    path: "/delete/products",
+    pageTitle: "Delete Products",
+    products: products.length>0?products:null
+  });
+};
+
+
+exports.getAdminSettings = (req, res, next) => {
+  res.render("admin/settings", {
+    path: "/login",
+    pageTitle: "Settings",
+    err:0
+  });
+};

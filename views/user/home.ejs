@@ -68,27 +68,27 @@
                       <li class="active"> <a href="/">Home</a> </li>
                       <li> <a href="#about">About</a> </li>
                       <li> <a href="/products">Green Grocery</a> </li>
-                      <li>
-                         <form action="/products/search" method="post">
-                          <input type="text" name="search" placeholder="" required>
-                          <input type="hidden" name="_csrf" value="<%= csrfToken %>">
-                          <button type="submit"><i class="fa fa-search"></i></button>
-                         </form> 
-                        </li>
-                      <li> <a href="#staticBackdrop" data-bs-toggle="modal" data-bs-target="#staticBackdrop">Contact Us</a> </li>
+                      <li><a href="#staticBackdrop" data-bs-toggle="modal" data-bs-target="#staticBackdrop">Contact Us</a> </li>
                       
                       <% if(isAuthenticated1) { %>
                         <li> <a href="/profile">Profile</a> </li>
                         <li>
                           <form action="/logout" method="post">
                             <input type="hidden" name="_csrf" value="<%= csrfToken %>" />
-                            <a><button type="submit">Logout</button></a>
+                            <a><button type="submit" style="color:red">Logout</button></a>
                           </form>
                         </li>
                       <% } else { %>
                         <li> <a href="/login">Login</a> </li>
                       <% } %>
-                     
+                      <li>
+                        <form action="/products/search" method="post">
+                         <input type="text" name="search" placeholder="" required>
+                         <input type="hidden" name="_csrf" value="<%= csrfToken %>">
+                         <button type="submit"><i class="fa fa-search"></i></button>
+                        </form> 
+                       </li>
+                     <li> 
                      <li> <a href="#"><img src="icon/icon_b.png"  /></a></li>
                      </ul>
                    </nav>

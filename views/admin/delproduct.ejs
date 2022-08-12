@@ -93,10 +93,10 @@
       Go Back
     </a>
     <li>
-      <form action="/admin/products/search" method="post">
+      <form action="/admin/delete-product/search" method="post">
        <input type="text" name="search" placeholder="" required>
        <input type="hidden" name="_csrf" value="<%= csrfToken %>">
-       <button type="submit"><i class="fa fa-search"></i></button>
+       <button type="submit"><i class="fa fa-search" style="color:white; font-size:18px"></i></button>
       </form> 
      </li>
   </nav>
@@ -111,7 +111,7 @@
 
     <div class="grid grid-cols-1 gap-y-10 sm:grid-cols-2 gap-x-6 lg:grid-cols-3 xl:grid-cols-3 xl:gap-x-8">
       <% if (!products) { %>
-        <h4>No Products found.</h4>
+        <h4 style="color:white; font-size:18px">No Products found.</h4>
       <% } else { %>
         <% for (let product of products) { %>
         <div class="group bg-white mx-4 p-4">

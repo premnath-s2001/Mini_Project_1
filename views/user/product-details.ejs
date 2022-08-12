@@ -19,7 +19,13 @@
             font-family: "Source Sans Pro", sans-serif;
         }
         
-        
+   
+        @media only screen and (max-width: 400px) {
+  #mobile {
+    margin-left:5%;
+  }}
+
+
         
          .centered {
             text-align: center;
@@ -43,7 +49,12 @@
         </style>
 </head>
 <body>
- 
+    <nav class="navbar navbar-light bg-dark">
+        <a class="navbar-brand" href="/products" style="margin-left: 2%;color: #fff">
+            <img src="https://img.icons8.com/flat-round/64/000000/back--v1.png" width="30" height="30" class="d-inline-block align-top" alt="">
+            Go Back
+          </a>
+          </nav>
         <main class="centered">
             <br> <br>
             <h3>
@@ -57,7 +68,7 @@
                         <img src="<%= product.url %>">
                     </div>
                 </div>
-                <div class="col" style="text-align: left">
+                <div class="col" id="mobile" style="text-align: left">
                     <h2>
                         <%= product.name %>
                     </h2>
@@ -70,7 +81,7 @@
                     <% if (isAuthenticated1) { %>
                         <%- include('../include/add-to-cart.ejs', { product: product }) %>
                     <% } %>
-                    
+                    <br> <br> <br>
                 </div>
             </div>
            

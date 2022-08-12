@@ -9,6 +9,7 @@
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" />
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/tw-elements/dist/css/index.min.css" />
     <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://unpkg.com/flowbite@1.4.4/dist/flowbite.js"></script>
     <script src="https://kit.fontawesome.com/79e9b7a5af.js" crossorigin="anonymous"></script>
     <link rel="stylesheet" type="text/css" href="https://pixinvent.com/stack-responsive-bootstrap-4-admin-template/app-assets/fonts/simple-line-icons/style.min.css">
     <script defer src="https://unpkg.com/alpinejs@3.10.2/dist/cdn.min.js"></script>
@@ -16,7 +17,10 @@
     @import url("https://fonts.googleapis.com/css?family=Open+Sans:400,400i,700");
 
 
-
+    @media only screen and (max-width: 400px) {
+  #mobile {
+    margin-top:-65%;
+  }}
 
 /* Open modal button styling */
 #open-modal {
@@ -183,7 +187,7 @@
     <section class="antialiased bg-white text-gray-600 h-screen px-4" x-data="app" style="margin-top:-5%">
       <div class="flex flex-col justify-center h-full">
           <!-- Table -->
-          <div class="w-full max-w-2xl mx-auto bg-gray-100 shadow-lg rounded-sm border border-gray-200">
+          <div class="w-full max-w-2xl mx-auto bg-gray-100 shadow-lg rounded-sm border border-gray-200" id="mobile">
               <header class="px-5 py-4 border-b border-gray-500">
                   <div class="font-semibold text-gray-800">Manage Carts</div>
               </header>
